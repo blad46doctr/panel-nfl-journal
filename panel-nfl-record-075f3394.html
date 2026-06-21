@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资料索引 · NFL 信息整理页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f7f8fc;
+      color: #1e1f2a;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 —— hero */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2b 0%, #142b3f 100%);
+      color: #e7edf5;
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid #2b4057;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: 0 auto;
+      color: #b9d0e3;
+      font-weight: 300;
+    }
+
+    .hero .small-tag {
+      display: inline-block;
+      margin-top: 1.8rem;
+      background: #2f4b66;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #d0e2f0;
+    }
+
+    /* 正文区容器 */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(14, 30, 50, 0.04);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      border-left: 6px solid #2f6b9a;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      color: #132433;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: #3c4d61;
+      margin-top: -0.5rem;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .feature-item {
+      background: #f1f5fa;
+      padding: 1.35rem 1.2rem;
+      border-radius: 16px;
+      border: 1px solid #e2e9f2;
+    }
+
+    .feature-item h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #11416a;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #2d3f52;
+    }
+
+    .faq-item {
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid #e3e9f2;
+      padding-bottom: 1.2rem;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #162d44;
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+
+    .faq-a {
+      color: #3f5369;
+      font-size: 0.96rem;
+    }
+
+    .link-block {
+      margin-top: 2rem;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      border: 1px solid #dce5ef;
+      text-align: center;
+    }
+
+    .link-block a {
+      color: #1a6c9e;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dotted #7aa3c8;
+      transition: border 0.2s, color 0.2s;
+    }
+
+    .link-block a:hover {
+      color: #0d4a72;
+      border-bottom: 1px solid #0d4a72;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: #66778b;
+      text-align: center;
+      border-top: 1px solid #dce3ed;
+      padding-top: 2rem;
+    }
+
+    .footer-note a {
+      color: #2f6b9a;
+      text-decoration: none;
+      border-bottom: 1px dotted #859fb7;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- hero 区 -->
+  <section class="hero">
+    <h1>信息索引 · 赛事资料整理</h1>
+    <p>围绕 <strong>NFL</strong> 的数据、球队、赛季结构与档案记录，提供经过梳理的内容浏览方式。本页是一份静态信息说明，适合日常查询与快速索引。</p>
+    <span class="small-tag">更新于 2025 · 索引向</span>
+  </section>
+
+  <!-- 主要内容区 -->
+  <main class="container">
+
+    <!-- 优势区：信息整理特点 -->
+    <div class="card">
+      <h2 class="section-title">为什么需要整理过的资料</h2>
+      <p class="section-sub">赛事信息庞杂，归类与索引能节省反复查找的时间。</p>
+      <div class="grid-3">
+        <div class="feature-item">
+          <h3>结构化分类</h3>
+          <p>按赛季、分区、球队分别归档，减少信息碎片。每个条目附带时间戳与来源简注。</p>
+        </div>
+        <div class="feature-item">
+          <h3>关键数据提取</h3>
+          <p>赛程、战绩、攻防效率等常用数列单独列出，不必在长文中自行挖掘。</p>
+        </div>
+        <div class="feature-item">
+          <h3>延伸链接指引</h3>
+          <p>每条记录均关联原始页面或补充说明，方便进一步核实或深入研究。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 说明区：从资料整理与索引切入 -->
+    <div class="card">
+      <h2 class="section-title">索引内容范围</h2>
+      <p style="margin-bottom: 1rem;">
+        资料整理主要覆盖以下板块：常规赛与季后赛对阵、球队 roster 变动、选秀记录、教练组更迭、以及历史比分档案。每部分采用统一字段表头（日期、对手、比分、场地、备注），便于横向比较。部分早期赛季数据以表格摘要形式呈现，无冗余评论。
+      </p>
+      <p>
+        索引本身不包含实时比分或预测分析，仅作为结构化参照。如果你需要更多赛事动态或深度数据，可以直接访问 
+        <a href="https://panel-nfl.com" style="color:#1a6c9e; font-weight:500; text-decoration:underline dotted;">nfl</a>  
+        的源站查看最新信息。这里的整理版本更侧重离线阅读与快速定位。
+      </p>
+    </div>
+
+    <!-- 场景提示：怎么用这些索引 -->
+    <div class="card">
+      <h2 class="section-title">适合的使用场景</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.8rem 1.8rem; margin-top: 0.2rem;">
+        <span style="background: #e6edf6; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">✓ 回顾往季对阵</span>
+        <span style="background: #e6edf6; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">✓ 对比球队战绩</span>
+        <span style="background: #e6edf6; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">✓ 查找选秀签位</span>
+        <span style="background: #e6edf6; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">✓ 核实赛程时间</span>
+        <span style="background: #e6edf6; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">✓ 了解分区变化</span>
+      </div>
+      <p style="margin-top: 1.5rem; color: #3c546c;">
+        每个分类下附有简短说明，避免误解字段含义。如需更丰富的可视化或交互式筛选，建议配合 
+        <a href="https://panel-nfl.com" style="color:#1a6c9e; border-bottom:1px dotted;">nfl</a> 
+        官方工具使用。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+      <h2 class="section-title">常见问题摘要</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">索引覆盖到哪一年？</div>
+        <div class="faq-a">目前整理自 2000 赛季至今，更早的经典赛季数据以逐年补充的方式归档。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">数据更新频率如何？</div>
+        <div class="faq-a">常规赛期间每周更新一次赛果与排名；休赛期以 roster 变动和选秀结果为主。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">是否包含伤病或训练信息？</div>
+        <div class="faq-a">不包含。本索引仅聚焦比赛、球队与赛季结构，伤病等细粒度信息建议参考专业体育媒体。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">我能直接复制这些表格和列表吗？</div>
+        <div class="faq-a">可以。页面内容为公开整理，无特殊授权限制，但引用时注明出处会更妥当。</div>
+      </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="link-block">
+      <p style="font-size: 1rem; color: #1a2f44;">
+        关于 NFL 更完整的资料、实时数据与官方动态，请移步 
+        <a href="https://panel-nfl.com">nfl</a> 
+        —— 这里提供持续更新的信息面板。
+      </p>
+    </div>
+
+    <div class="footer-note">
+      <span>一个侧重索引与整理的说明页 · 信息仅供参考 · 最终以官方来源为准</span>
+      <br>
+      <span style="display: inline-block; margin-top: 0.5rem;">
+        更多资料：<a href="https://panel-nfl.com">nfl</a>
+      </span>
+    </div>
+
+  </main>
+
+</body>
+</html>
